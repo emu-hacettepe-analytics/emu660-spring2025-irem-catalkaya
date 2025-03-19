@@ -1,9 +1,27 @@
 ---
-title: "Welcome to My Analytics Lab"
+title: "Welcome to My Analytics Lab 🧚☁️"
 ---
 
-Hello!! My name is xxx xxxx.
+![](images/pinkpantheress-pinkpanther.gif)
 
-This is my personal webpage.
-
-Please stay tuned to follow my works on data analytics, blog posts, and more.
+```{=html}
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+</head>
+<body style="background-color: #F2E0E6;>
+<style >
+body {
+  font-family: "Dosis", sans-serif;
+}
+</style>
+<span style="color: #E75480;">
+Hello!! My name is İrem Çatalkaya.<br>
+<br>
+This is my personal webpage.<br>
+<br>
+Please stay tuned to follow my works on data analytics, blog posts, and more.<br>
+</span>
+</body>
+```
