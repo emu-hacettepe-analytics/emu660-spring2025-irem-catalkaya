@@ -2,14 +2,99 @@
 title: "Assignment 1"
 ---
 
-# Assignment 1
+## (a) **a Brief Summary about “Veri Bilimi ve Endüstri Mühendisliği Üzerine Sohbetler - Baykal Hafızoğlu & Erdi Daşdemir”:**
+
+Konuşmacı, kariyer yolculuğunu ve veri bilimi alanındaki deneyimlerini paylaşıyor. Özellikle oyun endüstrisinde ve perakende sektöründe yaptığı çalışmalara odaklanıyor. İlk olarak, bir oyun şirketinde kullanıcıların demografik özelliklerine ve oyun içi davranışlarına dayalı dinamik fiyatlandırma modelleri üzerinde çalıştığını belirtiyor. Daha sonra, Intel'de geçirdiği süre boyunca veri bilimi ve optimizasyon üzerine çalışmalar yaptığını anlatıyor.
+
+Şu anda Invent Analytics'te çalışan konuşmacı, burada perakende şirketlerinin envanter ve satış tahminlerini optimize eden yazılımlar geliştirdiklerini açıklıyor. Şirketin, akademik temelli bir yaklaşımla büyüme hedeflerini gerçekleştirmeye çalıştığını ve özellikle ABD pazarında genişlemeyi hedeflediğini belirtiyor.
+
+Konuşmacı, veri biliminin ne olduğu ve ne olmadığı üzerine detaylı bir açıklama yapıyor. Veri biliminin sadece istatistik veya modelleme olmadığını, disiplinler arası bir alan olduğunu vurguluyor. Veri biliminin problem tanımlama, veri toplama, veri analizi, model oluşturma ve sonuçları değerlendirme gibi adımlardan oluştuğunu anlatıyor. Ayrıca, veri biliminde etik ve alan bilgisinin önemine dikkat çekiyor.
+
+Son olarak, konuşmacı doktora tezi üzerine yaptığı çalışmalardan bahsediyor. Otonom araçların trafikteki etkilerini inceleyen bir model üzerinde çalıştığını ve bu araçların trafik akışını nasıl optimize edebileceğini araştırdığını açıklıyor. Otonom araçların insan sürücülü araçlarla birlikte nasıl uyum içinde çalışabileceğini simüle eden bir sistem geliştirdiğini belirtiyor.
+
+Konuşma, katılımcıların sorularıyla devam ediyor. Sorular arasında veri bilimi alanında kariyer yapmak isteyenler için öneriler, otonom araçların geleceği ve veri temizleme süreçleri gibi konular yer alıyor. Konuşmacı, özellikle Python gibi programlama dillerinin öğrenilmesini ve lisansüstü eğitimin kariyer planlamasında önemli bir rol oynadığını vurguluyor.\*
+
+*\*: AI-generated*
+
+## (b) Explore Statistical Summaries with Custom Functions and Iteration Methods:
 
 ```{r}
-1 + 1
+mtcars
+
+compute_stats <- function(v) {
+  mean_value <- mean(v)
+  median_value <- median(v)
+  variance_value <- var(v)
+  iqr_value <- IQR(v)
+  min_value <- min(v)
+  max_value <- max(v)
+  
+  result <- list(
+    mean = mean_value,
+    median = median_value,
+    variance = variance_value,
+    IQR = iqr_value,
+    minimum = min_value,
+    maximum = max_value
+  )
+  
+  return(result)
+}
+
+data(mtcars)
+
+data <- data(mtcars)
+
+for (column in names(data)) {
+  if (is.numeric(data[[column]])) {
+    stats <- compute_stats(data[[column]])
+    cat("Statistics for column:", column)
+    print(stats)
+  }
+}
 ```
 
-My first assignment has two parts.
+## (c) na_example:
 
-## (a)
+```{r}
+library(dslabs)
+data("na_example")
+na_example <- na_example
+na_example
+total_na_count <- sum(is.na(na_example))
+total_na_count
 
-## (b)
+mean_value <- mean(na_example, na.rm = TRUE)
+sd_value <- sd(na_example, na.rm = TRUE)
+mean_value
+sd_value
+
+median_value <- median(na_example, na.rm = TRUE)
+na_v1 <- na_example
+na_v1[is.na(na_v1)] <- median_value
+na_v1
+
+
+na_v2 <- na_example
+
+na_indices <- which(is.na(na_v2))
+
+na_v2[na_indices] <- sample(na_v2[!is.na(na_v2)], size = length(na_indices), replace = TRUE)
+na_v2
+
+results <- data.frame(
+  Dataset = c("Original", "Version 1 (Median)", "Version 2 (Random)"),
+  Mean = c(mean_value, mean(na_v1), mean(na_v2)),
+  SD = c(sd_value, sd(na_v1), sd(na_v2))
+)
+
+results
+
+
+```
+
+Versiyon 1 daha düşük sapma sağlarken, NA değerlerin dağılımını gözetmediği için ortalamada değişim gözlenmektedir.
+
+Versiyon 2 orijinal versiyona daha yakın değerler sağlamaktadır.
+
+Bu durumda versiyon 2'nin tercih edilmesi istatistiksel olarak daha anlamlı olacaktır.
